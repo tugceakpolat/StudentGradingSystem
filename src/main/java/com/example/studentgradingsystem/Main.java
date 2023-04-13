@@ -13,7 +13,7 @@ public class Main {
 
          Student student = new Student("100","Jack D.", "4", phys,math,history);
          student.addBulkExam(30,82,74);
-         student.printNote();
+         student.isPass();
 
 
     }

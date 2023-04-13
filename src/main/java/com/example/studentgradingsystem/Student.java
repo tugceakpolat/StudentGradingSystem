@@ -33,12 +33,25 @@ public class Student {
         if(note3 >= 0 && note3 <=100){
             course.note = note3;
         }
+
+        void isPass() {
+            this.avarage = ((this.course.note + this.course2.note + this.course3.note) / 3.0);
+            if(this.avarage >=55){
+                System.out.println("You passed.");
+            }
+            else{
+                System.out.println("You failed the class.");
+            }
+
+        }
+        printNote();
     }
 
     void printNote(){
         System.out.println(course.name + " Note : " + course.note);
         System.out.println(course2.name + " Note : " + course2.note);
         System.out.println(course3.name + " Note : " + course3.note);
+        System.out.println("Your Avarage : " + this.avarage);
 
 
     }
