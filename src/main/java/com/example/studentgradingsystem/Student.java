@@ -7,17 +7,17 @@ public class Student {
     String studentName;
     String studentNumber;
     String classes;
-    double avarage;
+    private double avarage;
     boolean isPass;
 
-    Student(String studentNumber, String studentName, String classes, Course course, Course math, Course history){
+    Student(String studentNumber, String studentName, String classes, Course course, Course course2, Course course3){
         this.studentName=studentName;
         this.studentNumber=studentNumber;
         this.classes= classes;
         this.course = course;
         this.course2= course2;
         this.course3= course3;
-        this.avarage= 0.0;
+        this.setAvarage(0.0);
         isPass = false;
 
     }
@@ -28,31 +28,44 @@ public class Student {
             course.note = note1;
         }
         if(note2 >= 0 && note2 <=100){
-            course.note = note2;
+            course2.note = note2;
         }
         if(note3 >= 0 && note3 <=100){
-            course.note = note3;
+            course3.note = note3;
         }
 
-        void isPass() {
-            this.avarage = ((this.course.note + this.course2.note + this.course3.note) / 3.0);
-            if(this.avarage >=55){
-                System.out.println("You passed.");
-            }
-            else{
-                System.out.println("You failed the class.");
-            }
 
+    }
+    void isPass() {
+
+        this.setAvarage(((this.course.note + this.course2.note + this.course3.note) / 3.0));
+        if(this.getAvarage() >=55){
+            System.out.println("You passed.");
+            this.isPass = true;
         }
+        else{
+            System.out.println("You failed the class.");
+        }
+
         printNote();
     }
+
 
     void printNote(){
         System.out.println(course.name + " Note : " + course.note);
         System.out.println(course2.name + " Note : " + course2.note);
         System.out.println(course3.name + " Note : " + course3.note);
-        System.out.println("Your Avarage : " + this.avarage);
+        System.out.println("Your Avarage : " + this.getAvarage());
 
 
+
+    }
+
+    public double getAvarage() {
+        return avarage;
+    }
+
+    public void setAvarage(double avarage) {
+        this.avarage = avarage;
     }
 }
